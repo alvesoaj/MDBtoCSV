@@ -54,13 +54,14 @@ class Tool {
                     writer.write(header + "\n");
                                         
                     for(Row row : table) {
-                        // System.out.println("Look ma, a row: " + row);
+                        // System.out.println("ROW: " + row);
                         String line = "";
                         for (int i=0; i < columnCount; i++) {
+                            String value = getValue(columns.get(i).getType(), row, columns.get(i).getName());
                             if (i != columnCount - 1) {
-                                line += getValue(columns.get(i).getType(), row, columns.get(i).getName()) + ",";
+                                line += value + ",";
                             } else {
-                                line += getValue(columns.get(i).getType(), row, columns.get(i).getName());
+                                line += value;
                             }
                         }
                         writer.write(line + "\n");
@@ -68,7 +69,7 @@ class Tool {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } finally {
-                   try { writer.close(); } catch (Exception ex) { /*ignore*/ }
+                    try { writer.close(); } catch (Exception ex) { /*ignore*/ }
                 }
             }
         } catch (Exception e) {
@@ -90,13 +91,16 @@ class Tool {
         } else if(dataType == DataType.SHORT_DATE_TIME) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyy-mm-dd'T'hh:mm:ss"); 
             return simpleDateFormat.format(row.getDate(columnName));
+        } else if(dataType == DataType.TEXT) {
+            return row.getString(columnName);
         } else {
             try {
                 return row.getString(columnName);
             } catch (Exception e) {
-               System.out.println("DT: " + dataType);
-               System.out.println("Row: " + row);
-               System.out.println("CN: " + columnName);
+                e.printStackTrace();
+                System.out.println("DT: " + dataType);
+                System.out.println("Row: " + row);
+                System.out.println("CN: " + columnName);
             } finally {
                 return "";
             }
