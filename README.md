@@ -8,11 +8,11 @@ commons-logging
 
 ## COMPILE
 
-javac -classpath ./libs\* Tool.java
+javac -classpath ./libs/\* Tool.java
 
 ## RUN
 
-java -classpath .:./libs\* Tool
+java -classpath .:./libs/\* Tool
 
 ## USAGE
 
