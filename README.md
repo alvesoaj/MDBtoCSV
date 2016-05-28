@@ -1,4 +1,4 @@
-## MDB to CSV converter with JAVA
+# MDB to CSV converter with JAVA
 
 ## DEPENDENCES
 
