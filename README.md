@@ -1,3 +1,11 @@
+MDB to CSV converter with JAVA
+
+### DEPENDENCES
+
+# jackcess
+## commons-lang
+## commons-logging
+
 ### COMPILE
 
 javac -classpath ./\* Tool.java
@@ -6,9 +14,6 @@ javac -classpath ./\* Tool.java
 
 java -classpath .:./\* Tool
 
+### USAGE
 
-### DEPENDENCES
-
-# jackcess
-## commons-lang
-## commons-logging
+# Change the path to .MDB in class Tool.java, compile and run, the .CSV archives will be created inside the folder files
