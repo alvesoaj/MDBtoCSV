@@ -50,7 +50,7 @@ class Tool {
                 Writer writer = null;
                 try {
                     writer = new BufferedWriter(new OutputStreamWriter(
-                        new FileOutputStream("files/" + table.getName() + ".csv"), "utf-8"));
+                        new FileOutputStream("output/" + table.getName() + ".csv"), "utf-8"));
                     writer.write(header + "\n");
                                         
                     for(Row row : table) {
