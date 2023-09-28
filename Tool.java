@@ -88,7 +88,7 @@ class Tool {
             return String.format(Locale.US, "%.2f", row.getDouble(columnName));
         } else if(dataType == DataType.NUMERIC) {
             return String.valueOf(row.getBigDecimal(columnName));
-        } else if(dataType == DataType.SHORT_DATE_TIME) {
+        } else if(dataType == DataType.SHORT_DATE_TIME && row.getDate(columnName) != null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyy-mm-dd'T'hh:mm:ss"); 
             return simpleDateFormat.format(row.getDate(columnName));
         } else if(dataType == DataType.TEXT) {
